@@ -7,6 +7,16 @@ module.exports = {
   entry: {
     main: './src/index.js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.jpg$/, // 符合这个正则的文件使用下面的 loader 打包
+        use: {
+          loader: 'file-loader'
+        } 
+      }
+    ]
+  },
   // 打包出来的文件信息
   output: {
     // 打包出来的入口文件名
