@@ -1,10 +1,11 @@
-import niu from './niu.jpg'
-// var img = require('./niu.jpg')
+import niu from './img/niu.jpg'
+var img1 = require('./img/niu.jpg')
 
 var img = new Image()
 
-img.src = niu
+img.src = img1.default
 
+console.log(img1.default, niu)
 
 var dom = document.getElementById('root')
 
