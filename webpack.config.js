@@ -29,6 +29,16 @@ module.exports = {
             limit: 102400
           }
         } 
+      },
+      {
+        test: /\.scss$/,
+        // loader有执行顺序，从右到左边
+        loader: [
+          'style-loader', // 4.将 JS 字符串生成为 style 节点
+          'css-loader', // 3.将 css 转化成 CommonJs 模块
+          'sass-loader', // 2.将 sass 编译成 css
+          'postcss-loader' // 1.为 css3 的属性添加 浏览器厂商前缀
+        ]
       }
     ]
   },
