@@ -10,9 +10,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jpg$/, // 符合这个正则的文件使用下面的 loader 打包
+        test: /\.(jpg|png|gif)$/, // 符合这个正则的文件使用下面的 loader 打包
         use: {
-          loader: 'file-loader'
+          loader: 'file-loader',
+          options: {
+            // placeholder 占位符 name---打包文件原文件名，hash---打包该文件时生成的哈希值，ext---打包文件原来的后缀
+            name: '[name]_[hash].[ext]',
+            // 打包文件放置的地址。
+            outputPath: 'images/'
+          }
         } 
       }
     ]

@@ -3,7 +3,7 @@ var img1 = require('./img/niu.jpg')
 
 var img = new Image()
 
-img.src = img1.default
+img.src = niu
 
 console.log(img1.default, niu)
 
