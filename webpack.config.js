@@ -12,12 +12,21 @@ module.exports = {
       {
         test: /\.(jpg|png|gif)$/, // 符合这个正则的文件使用下面的 loader 打包
         use: {
-          loader: 'file-loader',
+          // loader: 'file-loader',
+          // options: {
+          //   // placeholder 占位符 name---打包文件原文件名，hash---打包该文件时生成的哈希值，ext---打包文件原来的后缀
+          //   name: '[name]_[hash].[ext]',
+          //   // 打包文件放置的地址。
+          //   outputPath: 'images/'
+          // }
+          loader: 'url-loader',
           options: {
             // placeholder 占位符 name---打包文件原文件名，hash---打包该文件时生成的哈希值，ext---打包文件原来的后缀
             name: '[name]_[hash].[ext]',
             // 打包文件放置的地址。
-            outputPath: 'images/'
+            outputPath: 'images/',
+            // 设置将图片转化为base64文件的文件大小阀值，超过 100k 按配置打包成图片，低于 100k 会转化成base64写在bundle.js中，可以减少http请求次数
+            limit: 102400
           }
         } 
       }
